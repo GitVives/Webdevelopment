@@ -1,0 +1,38 @@
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 1.1em;
+    background-color: silver;
+    color: darkblue;
+}
+
+h1 {
+    font-variant: petite-caps;
+    background-color: red;
+}
+
+a:hover {
+    border-style: double;
+}
+
+.stippeltjesrand {
+    border-style: dotted;
+    border-width: 1px;
+}
+
+a::before {
+    content: '';
+    padding-left: 20px;
+    margin-right: 5px;
+    background-image: url("../images/link.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.checklist {
+    list-style-type: circle;
+    list-style-image: url("../images/unchecked.png");
+}
+
+.checked {
+    list-style-image: url("../images/checked.png");
+}
