@@ -1,0 +1,21 @@
+/*section {*/
+/*    padding: 10px;*/
+/*    width: 50%;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*section {*/
+/*    padding: 10px;*/
+/*    width: 47%;*/
+/*    display: inline-block;*/
+/*}*/
+
+section {
+    padding: 10px;
+    width: 550px;
+    display: inline-block;
+}
+
+section:nth-child(1) {
+    border-right-style: solid;
+}
