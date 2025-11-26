@@ -1,0 +1,48 @@
+article:nth-child(1) {
+    margin: 0 10px 10px 10px;
+}
+
+article:nth-child(n+2) {
+    margin: 10px 10px 10px 10px;
+}
+
+article {
+    font-size: 1.25em;
+    border-style: solid;
+    overflow: auto;
+    padding: 10px;
+}
+
+article:nth-child(even) img {
+    float: right;
+    margin-left: 10px;
+}
+
+article:nth-child(odd) img {
+    float: left;
+    margin-right: 10px;
+}
+
+/*main {*/
+/*    margin-left: 10px;*/
+/*    margin-right: 10px;*/
+/*    font-size: 1.25em;*/
+/*}*/
+
+/*article {*/
+/*    margin-bottom: 10px;*/
+/*    overflow: auto;*/
+/*    border: 1px solid #ddd;*/
+/*    padding: 10px;*/
+/*}*/
+
+/*article:nth-child(odd) img {*/
+/*    float: left;*/
+/*    margin-right: 10px;*/
+/*}*/
+
+/*article:nth-child(even) img {*/
+/*    float: right;*/
+/*    margin-left: 10px;*/
+/*}*/
+
