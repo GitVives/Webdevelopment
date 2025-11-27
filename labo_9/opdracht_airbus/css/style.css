@@ -81,6 +81,13 @@ aside p {
 .main > div:nth-child(1) {
     display: inline-block;
     width: 20%;
+    position: relative;
+}
+
+.main > div:nth-child(1) img {
+    position: absolute;
+    top: -120px;
+    left: 20px;
 }
 
 .main section:nth-child(3) {
@@ -106,4 +113,22 @@ aside p {
     background-color: #666666;
 }
 
+.bottom section {
+    margin-left: 120px;
+    display: inline-block;
+    color: white;
+    line-height: 2em;
+}
 
+.bottom section:nth-child(1) ul {
+    margin-top: 0;
+}
+
+.bottom a:hover {
+    background-color: red;
+}
+
+footer {
+    width: fit-content;
+    margin: auto;
+}
