@@ -1,0 +1,38 @@
+header {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+#profile_picture {
+    text-align: center;
+}
+
+#profile_picture img {
+    max-width: 80%;
+}
+
+#persoonlijke_gegevens {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#Willy_Sommers {
+    text-align: center;
+}
+
+#Willy_Sommers img {
+    max-width: 35%;
+}
+
+#Clouseau {
+    text-align: center;
+}
+
+#Clouseau img {
+    max-width: 50%;
+}
