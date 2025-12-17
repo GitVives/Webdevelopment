@@ -1,0 +1,57 @@
+html {
+    background-color: #333;
+    font-family: Helvetica,sans-serif;
+}
+
+* {
+    padding: 10px;
+}
+
+body {
+    background-color: #333;
+    font-size: 1em;
+    margin: 5px;
+}
+
+header, footer {
+    background: #ddaa00;
+}
+
+header a, footer a {
+    color: #ddaa00;
+}
+
+nav {
+    background-color: #ccc;
+    padding: 5px 2px;
+}
+
+nav a {
+    margin: 0 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    padding: 0;
+}
+
+main {
+    background-color: grey;
+}
+
+section {
+    margin: 5px;
+}
+
+section a {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #333;
+}
+
+h1 {
+    margin: 0;
+}
+
+img {
+    padding: 0px;
+}
