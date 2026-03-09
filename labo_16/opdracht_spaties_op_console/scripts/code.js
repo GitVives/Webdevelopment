@@ -12,7 +12,7 @@ const print = () => {
     let result = string.split("").filter((word) => word !== " ");
 
     for (let i = 0; i < result.length; i++) {
-        output += result[i];
+        output += result[i] + " ";
     }
 
     console.log(output);
