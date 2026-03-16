@@ -5,7 +5,37 @@
     <title>Formwaarden</title>
 </head>
 <body>
-
+<form>
+    <label for="roker">Is roker</label>
+    <input id="roker" type="checkbox" name="roker" value="roker">
+    <br>
+    <span>Moedertaal</span>
+    <input id="nederlands" type="radio" name="moedertaal" value="nl">
+    <label for="nederlands">Nederlands</label>
+    <input id="frans" type="radio" name="moedertaal" value="fr">
+    <label for="frans">Frans</label>
+    <input id="engels" type="radio" name="moedertaal" value="en">
+    <label for="engels">Engels</label>
+    <br>
+    <label for="favorieteBuurland">Favoriete buurland:</label>
+    <select id="favorieteBuurland" name="favorieteBuurland">
+        <option value="nederland">Nederland</option>
+        <option value="duitsland">Duitsland</option>
+        <option value="frankrijk">Frankrijk</option>
+    </select>
+    <br>
+    <span>Bestelling</span>
+    <select id="bestelling" name="bestelling" multiple size="1">
+        <option value="aardappelen">Aardappelen</option>
+        <option value="brood">Brood</option>
+        <option value="melk">Melk</option>
+        <option value="biefstuk">Biefstuk</option>
+        <option value="chips">Chips</option>
+        <option value="krant">Krant</option>
+    </select>
+    <br>
+    <input type="button" id="button" value="Toon resultaat">
+</form>
 <script type="text/javascript" charset="utf-8" src="scripts/code.js"></script>
 </body>
 </html>
