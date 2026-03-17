@@ -8,7 +8,9 @@ const maakGesorteerdeLijstGemeenten = () => {
 
     while (invoer !== "stop") {
         invoer = prompt("Geef een gemeente (typ 'stop' om te stoppen):");
-        gemeenten.push(invoer);
+        if (invoer !== "") {
+            gemeenten.push(invoer);
+        }
     }
 
     gemeenten.sort();
