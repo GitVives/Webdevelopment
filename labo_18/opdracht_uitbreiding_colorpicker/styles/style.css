@@ -1,0 +1,16 @@
+.colorDemo {
+    width:100px;
+    height:100px;
+    border:1px solid black;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+}
+
+#colorList {
+    display: flex;
+}
+
+#colorList > div {
+    margin-right: 10px;
+}
