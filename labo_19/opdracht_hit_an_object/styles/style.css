@@ -1,0 +1,18 @@
+#playField {
+    width: 800px;
+    height: 600px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+}
+
+#playField img {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+#gameImage {
+    display: none;
+}
