@@ -1,11 +1,10 @@
 let personen = [];
 
 const bewaarBewerktePersoon = () => {
-    console.log("Klik op de knop bewaar");
 
     valideer();
 
-    let inputFields = document.getElementsByClassName('.invalid');
+    let inputFields = document.getElementsByClassName('invalid');
 
     if (inputFields.length === 0) {
         let select = document.getElementById('lstPersonen');
@@ -31,8 +30,15 @@ const bewaarBewerktePersoon = () => {
         }
 
         let option = document.createElement("option");
-        option.textContent = `${voornaam} ${familienaam}`;
+        option.textContent = `${persoon.voornaam} ${persoon.familienaam}`;
         option.value = JSON.stringify(persoon);
+        option.addEventListener("click", () => {
+            voornaamInput.value = persoon.voornaam;
+            familienaamInput.value = persoon.familienaam;
+            emailInput.value = persoon.email;
+            geboortedatumInput.value = persoon.geboortedatum;
+            aantalKinderenInput.value = persoon.geboortedatum;
+        })
 
         select.appendChild(option);
     }
