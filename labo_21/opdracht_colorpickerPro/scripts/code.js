@@ -4,87 +4,121 @@ const setup = () => {
     let button = document.getElementById('button');
 
     let lastSliderSettings = JSON.parse(localStorage.getItem("recentRGB"));
-    console.log(lastSliderSettings.r);
 
-    sliders[0].value = lastSliderSettings.r;
-    sliders[1].value = lastSliderSettings.g;
-    sliders[2].value = lastSliderSettings.b;
+    if (lastSliderSettings !== null) {
+        sliders[0].value = lastSliderSettings.r;
+        sliders[1].value = lastSliderSettings.g;
+        sliders[2].value = lastSliderSettings.b;
+    }
 
     updateColor();
 
-    sliders[0].addEventListener("change", updateColor);
-    sliders[0].addEventListener("input", updateColor);
-
-    sliders[1].addEventListener("change", updateColor);
-    sliders[1].addEventListener("input", updateColor);
-
-    sliders[2].addEventListener("change", updateColor);
-    sliders[2].addEventListener("input", updateColor);
+    for (let i = 0; i < sliders.length; i++) {
+        sliders[i].addEventListener("input", updateColor);
+    }
 
     button.addEventListener("click", saveColor);
+
+    loadSavedColors();
 }
 
 const updateColor = () => {
     let sliders = document.getElementsByClassName("slider");
-    let colorDemos= document.getElementsByClassName("colorDemo");
+    let colorDemos = document.getElementsByClassName("colorDemo");
 
-    colorDemos[0].style.backgroundColor= `rgb(${sliders[0].value}, ${sliders[1].value}, ${sliders[2].value})`;
+    colorDemos[0].style.backgroundColor = `rgb(${sliders[0].value}, ${sliders[1].value}, ${sliders[2].value})`;
 
-    let lastSliderSettings = {};
-    lastSliderSettings.r = sliders[0].value;
-    lastSliderSettings.g = sliders[1].value;
-    lastSliderSettings.b = sliders[2].value;
+    let lastSliderSettings = {
+        r: sliders[0].value,
+        g: sliders[1].value,
+        b: sliders[2].value
+    };
 
-    let lastSliderSettingsJSON = JSON.stringify(lastSliderSettings);
+    localStorage.setItem("recentRGB", JSON.stringify(lastSliderSettings));
+}
 
-    localStorage.setItem("recentRGB", lastSliderSettingsJSON);
+const createColorElement = (color, index) => {
+    let list = document.getElementById("colorList");
+    let div = document.createElement("div");
+
+    div.className = "colorDemo";
+    div.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+
+    div.dataset.red = color.r;
+    div.dataset.green = color.g;
+    div.dataset.blue = color.b;
+
+    let sliders = document.getElementsByClassName("slider");
+
+    div.addEventListener("click", () => {
+        sliders[0].value = color.r;
+        sliders[1].value = color.g;
+        sliders[2].value = color.b;
+        updateColor();
+    });
+
+    let deleteButton = document.createElement("input");
+    deleteButton.type = "button";
+    deleteButton.value = "X";
+    div.appendChild(deleteButton);
+
+    deleteButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        list.removeChild(div);
+
+        let saved = JSON.parse(localStorage.getItem("savedColorsArray")) || [];
+        saved.splice(index, 1);
+        localStorage.setItem("savedColorsArray", JSON.stringify(saved));
+
+        loadSavedColors();
+    });
+
+    list.appendChild(div);
 }
 
 const saveColor = () => {
     let sliders = document.getElementsByClassName("slider");
 
-    let r = sliders[0];
-    let g = sliders[1];
-    let b = sliders[2];
+    let color = {
+        r: sliders[0].value,
+        g: sliders[1].value,
+        b: sliders[2].value
+    };
 
+    let savedColorsArray;
+
+    let storedColors = localStorage.getItem("savedColorsArray");
+
+    if (storedColors !== null) {
+        savedColorsArray = JSON.parse(storedColors);
+    } else {
+        savedColorsArray = [];
+    }
+
+    savedColorsArray.push(color);
+
+    localStorage.setItem("savedColorsArray", JSON.stringify(savedColorsArray));
+
+    loadSavedColors();
+}
+
+const loadSavedColors = () => {
     let list = document.getElementById("colorList");
-    let div = document.createElement("div");
+    list.innerHTML = "";
 
-    div.className = "colorDemo";
-    list.appendChild(div);
+    let savedColorsArray;
 
-    div.dataset.red = r.value;
-    div.dataset.green = g.value;
-    div.dataset.blue = b.value;
+    let storedColors = localStorage.getItem("savedColorsArray");
 
-    div.style.backgroundColor = `rgb(${r.value}, ${g.value}, ${b.value})`;
+    if (storedColors !== null) {
+        savedColorsArray = JSON.parse(storedColors);
+    } else {
+        savedColorsArray = [];
+    }
 
-    div.addEventListener("click", () => {
-        r.value = div.dataset.red;
-        g.value = div.dataset.green;
-        b.value = div.dataset.blue;
-        updateColor();
-    })
-
-    let deleteButton = document.createElement("input");
-
-    deleteButton.type = "button";
-    deleteButton.setAttribute("value", "X");
-    div.appendChild(deleteButton);
-
-    deleteButton.addEventListener("click", (e) => {
-        list.removeChild(div);
-        e.stopPropagation();
-    })
-
-    let savedColors = []
-    let savedColor = {}
-
-    savedColor.r = r.value;
-    savedColor.g = g.value;
-    savedColor.b = b.value;
-
-
+    for (let index = 0; index < savedColorsArray.length; index++) {
+        createColorElement(savedColorsArray[index], index);
+    }
 }
 
 window.addEventListener("load", setup);
