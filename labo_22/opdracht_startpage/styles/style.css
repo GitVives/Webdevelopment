@@ -1,0 +1,17 @@
+#commandoField {
+    width: 95%;
+}
+
+.container > p {
+    font-size: 60%;
+}
+
+#button {
+    background-color: limegreen;
+    border: none;
+    width: 95%;
+}
+
+#clearHistory {
+    margin-bottom: 10px;
+}
